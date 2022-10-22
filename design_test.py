@@ -35,7 +35,7 @@ class Converter:
     def image_to_text(self, colors_table, image_name, reverse):
         img = Image.open(image_name)
 
-        extention = image_name[:image_name.rfind("."):]
+        extention = image_name[image_name.rfind(".") + 1::]
 
         size_factor = img.size[1] if img.size[1] > img.size[0] else img.size[0]
         if size_factor < 128:
@@ -64,9 +64,8 @@ class Converter:
                 char = self.get_char(brightness, colors_table)
                 draw.text((ix * self.FONT_SIZE, iy * self.FONT_SIZE), char, (r, g, b, 255), font=font)
 
-        image_name = image_name[image_name.rfind(".") + 1:]
         name = image_name[image_name.rfind("/") + 1:]
-        output.save(f"outputs/{name}.{extention}")
+        output.save(f"outputs/{name}")
 
         return 0
 
