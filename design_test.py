@@ -1,6 +1,7 @@
 import sys
 
 import math
+import sqlite3
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5.QtWidgets import QFileDialog
@@ -22,6 +23,7 @@ class Converter:
     def __init__(self, image, invert=True):
         self.pallete = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,\"^`'. "
         self.image = image
+        self.second_image_name = image
         self.invert = invert
         self.FONT_SIZE = 15
         self.image_to_text(self.pallete, image, invert)
@@ -31,6 +33,22 @@ class Converter:
         for i in range(1, len(colors_table) + 1):
             if i * step >= brightness:
                 return colors_table[i - 1]
+
+    def save_into_db(self, db_name, file_name1, file_name2):
+        con = sqlite3.connect(db_name)
+        cur = con.cursor()
+        cur.execute(
+            f'''insert into images(original) values("{file_name1}")
+            '''
+        )
+        cur.execute(
+            f'''update images
+            set converted = "{file_name2}"
+            where original = "{file_name1}"
+            '''
+        )
+        con.commit()
+        con.close()
 
     def image_to_text(self, colors_table, image_name, reverse):
         img = Image.open(image_name)
@@ -65,6 +83,7 @@ class Converter:
                     char = self.get_char(brightness, colors_table)
                     draw.text((ix * self.FONT_SIZE, iy * self.FONT_SIZE), char, (r, g, b, 255), font=font)
 
+            self.save_into_db("ascii_images.db", self.second_image_name, image_name)
             name = image_name[image_name.rfind("/") + 1:]
             output.save(f"outputs/{name}")
 
@@ -104,6 +123,7 @@ class Converter:
                         draw.text((ix * self.FONT_SIZE, iy * self.FONT_SIZE), char, (r, g, b, 255), font=font)
 
                 frames.append(out)
+            self.save_into_db("ascii_images.db", self.second_image_name, image_name)
             frames[0].save(f"outputs/{image_name[image_name.rfind('/') + 1:]}",
                            save_all=True, append_images=frames[1:],
                            optimize=False, duration=10, loop=0)
