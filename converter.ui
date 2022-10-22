@@ -42,7 +42,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Загрузить картинку</string>
+     <string>Загрузить файл</string>
     </property>
    </widget>
    <widget class="QPushButton" name="watch_images">

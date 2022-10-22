@@ -37,35 +37,76 @@ class Converter:
 
         extention = image_name[image_name.rfind(".") + 1::]
 
-        size_factor = img.size[1] if img.size[1] > img.size[0] else img.size[0]
-        if size_factor < 128:
-            resize_factor = 1
+        if extention != "gif":
+            size_factor = img.size[1] if img.size[1] > img.size[0] else img.size[0]
+            if size_factor < 128:
+                resize_factor = 1
+            else:
+                resize_factor = (15 * math.sqrt(size_factor - 128)) / math.sqrt(2560 - 128) + 1
+
+            img = img.reduce(int(resize_factor))
+            pixels = img.load()
+            x, y = img.size
+
+            output = Image.new("RGB", (x * self.FONT_SIZE, y * self.FONT_SIZE), (0, 0, 0))
+            draw = ImageDraw.Draw(output)
+            font = ImageFont.truetype("font.ttf", self.FONT_SIZE + 1)
+
+            if reverse:
+                colors_table = colors_table[::-1]
+
+            for iy in range(y):
+                for ix in range(x):
+                    pixel = pixels[ix, iy]
+                    r = pixel[0]
+                    g = pixel[1]
+                    b = pixel[2]
+                    brightness = (r + g + b) / 3
+                    char = self.get_char(brightness, colors_table)
+                    draw.text((ix * self.FONT_SIZE, iy * self.FONT_SIZE), char, (r, g, b, 255), font=font)
+
+            name = image_name[image_name.rfind("/") + 1:]
+            output.save(f"outputs/{name}")
+
+            return 0
+
         else:
-            resize_factor = (15 * math.sqrt(size_factor - 128)) / math.sqrt(2560 - 128) + 1
+            if reverse:
+                colors_table = colors_table[::-1]
+            frames = []
+            for frame in [frame.copy() for frame in ImageSequence.Iterator(img)]:
+                pixels = 0
 
-        img = img.reduce(int(resize_factor))
-        pixels = img.load()
-        x, y = img.size
+                size_factor = frame.size[1] if frame.size[1] > frame.size[0] else frame.size[0]
+                if size_factor < 128:
+                    resize_factor = 1
+                else:
+                    resize_factor = (15 * math.sqrt(size_factor - 128)) / math.sqrt(2560 - 128) + 1
 
-        output = Image.new("RGB", (x * self.FONT_SIZE, y * self.FONT_SIZE), (0, 0, 0))
-        draw = ImageDraw.Draw(output)
-        font = ImageFont.truetype("font.ttf", self.FONT_SIZE + 1)
+                if frame.mode == "P":
+                    continue
+                frame = frame.reduce(int(resize_factor))
+                pixels = frame.load()
+                x, y = frame.size
 
-        if reverse:
-            colors_table = colors_table[::-1]
+                out = Image.new("RGB", (x * self.FONT_SIZE, y * self.FONT_SIZE), (0, 0, 0))
+                draw = ImageDraw.Draw(out)
+                font = ImageFont.truetype("font.ttf", self.FONT_SIZE + 1)
 
-        for iy in range(y):
-            for ix in range(x):
-                pixel = pixels[ix, iy]
-                r = pixel[0]
-                g = pixel[1]
-                b = pixel[2]
-                brightness = (r + g + b) / 3
-                char = self.get_char(brightness, colors_table)
-                draw.text((ix * self.FONT_SIZE, iy * self.FONT_SIZE), char, (r, g, b, 255), font=font)
+                for iy in range(y):
+                    for ix in range(x):
+                        pixel = pixels[ix, iy]
+                        r = pixel[0]
+                        g = pixel[1]
+                        b = pixel[2]
+                        brightness = (r + g + b) / 3
+                        char = self.get_char(brightness, colors_table)
+                        draw.text((ix * self.FONT_SIZE, iy * self.FONT_SIZE), char, (r, g, b, 255), font=font)
 
-        name = image_name[image_name.rfind("/") + 1:]
-        output.save(f"outputs/{name}")
+                frames.append(out)
+            frames[0].save(f"outputs/{image_name[image_name.rfind('/') + 1:]}",
+                           save_all=True, append_images=frames[1:],
+                           optimize=False, duration=10, loop=0)
 
         return 0
 
