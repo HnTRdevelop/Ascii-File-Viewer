@@ -42,4 +42,4 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Ascii_Image_Coverter"))
         self.info_wtdLabel.setText(_translate("MainWindow", "Что вы хотите?"))
         self.btn_loadImage.setText(_translate("MainWindow", "Загрузить файл"))
-        self.btn_watchImages.setText(_translate("MainWindow", "Посмотреть картинки"))
+        self.btn_watchImages.setText(_translate("MainWindow", "Преобразовать файлы"))

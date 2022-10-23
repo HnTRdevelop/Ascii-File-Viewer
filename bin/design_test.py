@@ -1,4 +1,5 @@
 import sys
+import os
 
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication
@@ -94,11 +95,13 @@ class MyWidget(Ui_MainWindow, QMainWindow):
         if type(img_data) is not list:
             img_data.save("temp.png")
             insert_blob("temp.png", image_name)
+            os.remove("temp.png")
         else:
             img_data[0].save(f"temp.gif",
                              save_all=True, append_images=img_data[1:],
                              optimize=False, duration=10, loop=0)
             insert_blob("temp.gif", image_name)
+            os.remove("temp.gif")
 
 
 if __name__ == '__main__':
