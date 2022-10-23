@@ -9,6 +9,18 @@ import image_converter
 import sqlite3
 
 
+DIGIT_TO_CHAR = {"1": "one",
+                 "2": "two",
+                 "3": "three",
+                 "4": "four",
+                 "5": "five",
+                 "6": "six",
+                 "7": "seven",
+                 "8": "eight",
+                 "9": "nine",
+                 "0": "zero"}
+
+
 def convert_to_binary_data(filename):
     # Convert digital data to binary format
     with open(filename, 'rb') as file:
@@ -92,6 +104,8 @@ class MyWidget(Ui_MainWindow, QMainWindow):
         file_path = QFileDialog.getOpenFileName(self, '')[0]
         img_data = image_converter.image_to_text(file_path)
         image_name = file_path[file_path.rfind("/") + 1:file_path.rfind("."):]
+        for k in DIGIT_TO_CHAR.keys():
+            image_name = image_name.replace(k, DIGIT_TO_CHAR[k])
         if type(img_data) is not list:
             img_data.save("temp.png")
             insert_blob("temp.png", image_name)
