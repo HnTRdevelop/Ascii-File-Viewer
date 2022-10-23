@@ -21,6 +21,23 @@ def get_resize_factor(size_x, size_y):
     return resize_factor
 
 
+def get_color(r, g, b):
+    clr = [r, g, b]
+    if max(clr) < min(clr) + 32:
+        return 255, 255, 255
+    new_clr = [r, g, b]
+    new_clr[clr.index(min(clr))] = 0
+    clr.remove(min(clr))
+
+    if min(clr) != 0:
+        if max(clr) / min(clr) >= 1.25:
+            new_clr[new_clr.index(min(clr))] = 0
+
+    new_clr = [255 if i > 0 else 0 for i in new_clr]
+
+    return new_clr[0], new_clr[1], new_clr[2]
+
+
 def image_to_text(image_path):
     img = Image.open(image_path)
 
@@ -49,7 +66,7 @@ def image_to_text(image_path):
                 b = pixel[2]
                 brightness = (r + g + b) / 3
                 char = get_char(brightness)
-                draw.text((ix * FONT_SIZE, iy * FONT_SIZE), char, (r, g, b), font=font)
+                draw.text((ix * FONT_SIZE, iy * FONT_SIZE), char, get_color(r, g, b), font=font)
 
     # Working with gifs
     else:
@@ -79,7 +96,7 @@ def image_to_text(image_path):
                     b = pixel[2]
                     brightness = (r + g + b) / 3
                     char = get_char(brightness)
-                    draw.text((ix * FONT_SIZE, iy * FONT_SIZE), char, (r, g, b), font=font)
+                    draw.text((ix * FONT_SIZE, iy * FONT_SIZE), char, get_color(r, g, b), font=font)
 
             frames.append(out)
         output = frames.copy()
