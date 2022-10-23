@@ -6,7 +6,8 @@ FONT_SIZE = 15
 
 
 def get_char(brightness):
-    colors_table = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,\"^`'. "[::-1]
+    # colors_table = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,\"^`'. "[::-1]
+    colors_table = " .:-=+*#%@"
     step = 255 / len(colors_table)
     for i in range(1, len(colors_table) + 1):
         if i * step >= brightness:
