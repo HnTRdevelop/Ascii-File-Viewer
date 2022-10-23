@@ -51,8 +51,8 @@ def insert_blob(image_file, image_title=None):
 def read_blob_data():
     try:
         print("Connected to SQLite...")
-        sqliteConnection = sqlite3.connect('ascii_images.db')
-        cursor = sqliteConnection.cursor()
+        sqlite_connection = sqlite3.connect('ascii_images.db')
+        cursor = sqlite_connection.cursor()
         print("SQLite connected")
 
         sql_fetch_blob_query = """SELECT * FROM images"""
@@ -67,13 +67,15 @@ def read_blob_data():
             image_path = "outputs/" + title + f".{image_type}"
             write_to_file(image, image_path)
 
+        print("Clearing database")
+        cursor.execute("DELETE FROM images")
+        sqlite_connection.commit()
         cursor.close()
-
     except sqlite3.Error as error:
         print("Failed to insert blob data into sqlite table:", error)
     finally:
-        if sqliteConnection:
-            sqliteConnection.close()
+        if sqlite_connection:
+            sqlite_connection.close()
             print("SQLite connection is closed")
 
 
