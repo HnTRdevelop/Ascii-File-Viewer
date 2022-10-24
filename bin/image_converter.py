@@ -18,7 +18,8 @@ def get_resize_factor(size_x, size_y):
     size_factor = size_x if size_x > size_y else size_y
     resize_factor = 1
     if size_factor > 128:
-        resize_factor = (15 * math.sqrt(size_factor - 128)) / math.sqrt(2560 - 128) + 1
+        resize_factor = (16 * (size_factor - 128)) / 2594.13 + 1
+        print(resize_factor)
     return resize_factor
 
 
