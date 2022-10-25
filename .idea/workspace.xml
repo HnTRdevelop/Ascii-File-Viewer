@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87ed701e-3966-44bb-b877-2070887b8a77" name="Changes" comment="" />
+    <list default="true" id="87ed701e-3966-44bb-b877-2070887b8a77" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/bin/outputs/pabbley-artist-my-little-pony-фэндомы-sevensixsixzerotwoninetwo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project_numba_one.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project_numba_one.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/ascii_images.db" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ascii_images.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/design_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/design_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/image_converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/image_converter.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,18 +31,22 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2GV5tFoRmHRnDxYPVPmjcMp8VRK" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/siviz/AppData/Local/Programs/Python/Python310/Scripts/pyuic5.exe&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.externalTools&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/hntr/.local/lib/python3.10/site-packages",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\siviz\Documents\GitHub\project_numba_one" />
@@ -148,5 +159,19 @@
       <updated>1666461123238</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
