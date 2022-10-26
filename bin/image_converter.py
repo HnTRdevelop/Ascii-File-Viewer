@@ -8,10 +8,8 @@ FONT_SIZE = 15
 def get_char(brightness):
     # colors_table = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,\"^`'. "[::-1]
     colors_table = " .:-=+*#%@"
-    step = 255 / len(colors_table)
-    for i in range(1, len(colors_table) + 1):
-        if i * step >= brightness:
-            return colors_table[i - 1]
+    step = len(colors_table) / 255
+    return colors_table[int(brightness * step) - 1]
 
 
 def get_resize_factor(size_x, size_y):
@@ -22,21 +20,18 @@ def get_resize_factor(size_x, size_y):
     return resize_factor
 
 
-def get_color(r, g, b):
-    clr = [r, g, b]
-    if max(clr) < min(clr) + 32:
-        return 255, 255, 255
-    new_clr = [r, g, b]
-    new_clr[clr.index(min(clr))] = 0
-    clr.remove(min(clr))
+def get_error(new_color, old_color):
+    error = [old_color[0] - new_color[0],
+             old_color[1] - new_color[1],
+             old_color[2] - new_color[2]]
+    return error
 
-    if min(clr) != 0:
-        if max(clr) / min(clr) >= 1.25:
-            new_clr[new_clr.index(min(clr))] = 0
 
-    new_clr = [255 if i > 0 else 0 for i in new_clr]
-
-    return new_clr[0], new_clr[1], new_clr[2]
+def get_color(r, g, b, error=[0, 0, 0]):
+    r = 255 if r + error[0] > 128 else 0
+    g = 255 if g + error[1] > 128 else 0
+    b = 255 if b + error[2] > 128 else 0
+    return r, g, b
 
 
 def image_to_text(image_path):
@@ -60,14 +55,17 @@ def image_to_text(image_path):
         font = ImageFont.truetype("font.ttf", FONT_SIZE + 1)
 
         for iy in range(y):
+            error = [0, 0, 0]
             for ix in range(x):
                 pixel = pixels[ix, iy]
                 r = pixel[0]
                 g = pixel[1]
                 b = pixel[2]
-                brightness = (r + g + b) / 3
+                brightness = max([r, g, b])
                 char = get_char(brightness)
-                draw.text((ix * FONT_SIZE, iy * FONT_SIZE), char, get_color(r, g, b), font=font)
+                color = get_color(r, g, b, error)
+                error = get_error(color, (r, g, b))
+                draw.text((ix * FONT_SIZE, iy * FONT_SIZE), char, color, font=font)
 
     # Working with gifs
     else:
