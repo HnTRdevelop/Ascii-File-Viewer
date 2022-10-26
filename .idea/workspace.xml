@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87ed701e-3966-44bb-b877-2070887b8a77" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bin/outputs/pabbley-artist-my-little-pony-фэндомы-sevensixsixzerotwoninetwo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project_numba_one.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project_numba_one.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/tesitng.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/ascii_images.db" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ascii_images.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/design_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/design_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/image_converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/image_converter.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,20 +36,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/hntr/.local/lib/python3.10/site-packages",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/hntr/.local/lib/python3.10/site-packages&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\siviz\Documents\GitHub\project_numba_one" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bin" />
       <recent name="C:\Users\siviz\Documents\GitHub\project_numba_one\bin" />
     </key>
   </component>
@@ -119,6 +118,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="tesitng" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="project_numba_one" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bin" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bin/tesitng.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="project_numba_one" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -143,6 +163,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.design_test (1)" />
+        <item itemvalue="Python.tesitng" />
         <item itemvalue="Python.image_converter" />
         <item itemvalue="Python.design_test" />
         <item itemvalue="Python.test" />
