@@ -3,44 +3,66 @@ from PIL import Image, ImageFont, ImageDraw, ImageSequence
 
 
 FONT_SIZE = 15
+TABLES = [
+    " @",
+    " .:-=+*#%@",
+    " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
+]
+COLORS_TABLE = TABLES[2]
 
 
-def get_char(brightness):
-    # colors_table = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,\"^`'. "[::-1]
-    colors_table = " .:-=+*#%@"
-    step = len(colors_table) / 255
-    return colors_table[int(brightness * step) - 1]
+def get_char(brightness, error):
+    b = brightness + error
+    b = 255 if b > 255 else 0 if b < 0 else b
+
+    step = len(COLORS_TABLE) / 255
+    char = COLORS_TABLE[int(b * step) - 1]
+    return char, brightness - COLORS_TABLE.index(char) / step
 
 
 def get_resize_factor(size_x, size_y):
     size_factor = size_x if size_x > size_y else size_y
     resize_factor = 1
     if size_factor > 128:
-        resize_factor = (19 * (size_factor - 128)) / 2594.13 + 1
+        resize_factor = (16 * (size_factor - 128)) / 2594 + 1
     return resize_factor
 
 
-def get_error(new_color, old_color):
-    error = [old_color[0] - new_color[0],
-             old_color[1] - new_color[1],
-             old_color[2] - new_color[2]]
-    return error
+def get_color_error(new_color, old_color):
+    r = old_color[0] - new_color[0]
+    g = old_color[1] - new_color[1]
+    b = old_color[2] - new_color[2]
+    return [r, g, b].copy()
 
 
-def get_color(r, g, b, error=[0, 0, 0]):
-    r = 255 if r + error[0] > 128 else 0
-    g = 255 if g + error[1] > 128 else 0
-    b = 255 if b + error[2] > 128 else 0
+def get_color(r, g, b, error):
+    r = 255 if r + error[0] >= 128 else 0
+    g = 255 if g + error[1] >= 128 else 0
+    b = 255 if b + error[2] >= 128 else 0
     return r, g, b
 
 
-def image_to_text(image_path):
+def draw_char(pixel, brightness_error, color_error, draw, blending_mode, x, y, font):
+    r = pixel[0]
+    g = pixel[1]
+    b = pixel[2]
+    brightness = r * 0.299 + g * 0.587 + b * 0.114
+    char, brightness_error = get_char(brightness, brightness_error)
+    color = get_color(r, g, b, color_error)
+    color_error = get_color_error(color, (r, g, b))
+    if blending_mode:
+        pass
+    draw.text((x * FONT_SIZE, y * FONT_SIZE), char,
+              color,
+              font=font)
+    return brightness_error, color_error.copy()
+
+
+def image_to_text(image_path, blending_mode):
     img = Image.open(image_path)
 
     extension = image_path[image_path.rfind(".") + 1::]
     print(extension)
-
-    output = None
 
     if extension != "gif":
         print("Working with image...")
@@ -55,17 +77,16 @@ def image_to_text(image_path):
         font = ImageFont.truetype("font.ttf", FONT_SIZE + 1)
 
         for iy in range(y):
-            error = [0, 0, 0]
+            brightness_error = 0
+            color_error = [0, 0, 0]
             for ix in range(x):
                 pixel = pixels[ix, iy]
-                r = pixel[0]
-                g = pixel[1]
-                b = pixel[2]
-                brightness = max([r, g, b])
-                char = get_char(brightness)
-                color = get_color(r, g, b, error)
-                error = get_error(color, (r, g, b))
-                draw.text((ix * FONT_SIZE, iy * FONT_SIZE), char, color, font=font)
+                brightness_error, color_error = draw_char(pixel,
+                                                          brightness_error, color_error,
+                                                          draw,
+                                                          blending_mode,
+                                                          ix, iy,
+                                                          font)
 
     # Working with gifs
     else:
@@ -88,14 +109,16 @@ def image_to_text(image_path):
             font = ImageFont.truetype("font.ttf", FONT_SIZE + 1)
 
             for iy in range(y):
+                brightness_error = 0
+                color_error = [0, 0, 0]
                 for ix in range(x):
                     pixel = pixels[ix, iy]
-                    r = pixel[0]
-                    g = pixel[1]
-                    b = pixel[2]
-                    brightness = (r + g + b) / 3
-                    char = get_char(brightness)
-                    draw.text((ix * FONT_SIZE, iy * FONT_SIZE), char, get_color(r, g, b), font=font)
+                    brightness_error, color_error = draw_char(pixel,
+                                                              brightness_error, color_error,
+                                                              draw,
+                                                              blending_mode,
+                                                              ix, iy,
+                                                              font)
 
             frames.append(out)
         output = frames.copy()
