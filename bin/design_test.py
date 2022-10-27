@@ -102,7 +102,7 @@ class MyWidget(Ui_MainWindow, QMainWindow):
 
     def transform(self):
         file_path = QFileDialog.getOpenFileName(self, '')[0]
-        img_data = image_converter.image_to_text(file_path)
+        img_data = image_converter.image_to_text(file_path, True)
         image_name = file_path[file_path.rfind("/") + 1:file_path.rfind("."):]
         for k in DIGIT_TO_CHAR.keys():
             image_name = image_name.replace(k, DIGIT_TO_CHAR[k])
@@ -113,7 +113,7 @@ class MyWidget(Ui_MainWindow, QMainWindow):
         else:
             img_data[0].save(f"temp.gif",
                              save_all=True, append_images=img_data[1:],
-                             optimize=False, duration=10, loop=0)
+                             optimize=False, duration=1, loop=0)
             insert_blob("temp.gif", image_name)
             os.remove("temp.gif")
 
