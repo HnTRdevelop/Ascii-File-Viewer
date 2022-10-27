@@ -8,7 +8,7 @@ TABLES = [
     " .:-=+*#%@",
     " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
 ]
-COLORS_TABLE = TABLES[2]
+COLORS_TABLE = TABLES[1]
 
 
 def get_char(brightness, error):
