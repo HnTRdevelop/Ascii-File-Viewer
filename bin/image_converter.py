@@ -11,6 +11,15 @@ TABLES = [
 COLORS_TABLE = TABLES[1]
 
 
+def get_char(brightness, error):
+    b = brightness + error
+    b = 255 if b > 255 else 0 if b < 0 else b
+
+    step = len(COLORS_TABLE) / 255
+    char = COLORS_TABLE[int(b * step) - 1]
+    return char, brightness - COLORS_TABLE.index(char) / step
+
+
 def get_resize_factor(size_x, size_y):
     size_factor = size_x if size_x > size_y else size_y
     resize_factor = 1
