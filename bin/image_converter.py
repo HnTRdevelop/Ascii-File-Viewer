@@ -11,15 +11,6 @@ TABLES = [
 COLORS_TABLE = TABLES[1]
 
 
-def get_char(brightness, error):
-    b = brightness + error
-    b = 255 if b > 255 else 0 if b < 0 else b
-
-    step = len(COLORS_TABLE) / 255
-    char = COLORS_TABLE[int(b * step) - 1]
-    return char, brightness - COLORS_TABLE.index(char) / step
-
-
 def get_resize_factor(size_x, size_y):
     size_factor = size_x if size_x > size_y else size_y
     resize_factor = 1
@@ -46,6 +37,10 @@ def get_color(r, g, b, error):
 
 
 def draw_char(pixel, error, color_error, draw, blending_mode, x, y, font):
+    if not blending_mode:
+        error = 0
+        color_error = [0, 0, 0]
+
     r = pixel[0]
     g = pixel[1]
     b = pixel[2]
