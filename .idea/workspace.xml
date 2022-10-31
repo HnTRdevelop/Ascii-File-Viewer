@@ -5,12 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87ed701e-3966-44bb-b877-2070887b8a77" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Color_blending_testing/blending_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Color_blending_testing/origin.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Color_blending_testing/pone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Color_blending_testing/result.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/classic-color-spectrum-rgb-line-gradient-vector_fivetwotwosixeightzero-oneseventhree.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/pone.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/ascii_images.db" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ascii_images.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/image_converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/image_converter.py" afterDir="false" />
