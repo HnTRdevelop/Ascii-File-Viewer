@@ -24,8 +24,8 @@ DIGIT_TO_CHAR = {"1": "one",
 def convert_to_binary_data(filename):
     # Convert digital data to binary format
     with open(filename, 'rb') as file:
-        blobData = file.read()
-    return blobData
+        blob_data = file.read()
+    return blob_data
 
 
 def write_to_file(data, filename):
