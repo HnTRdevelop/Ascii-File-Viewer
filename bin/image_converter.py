@@ -1,14 +1,11 @@
-import math
-from PIL import Image, ImageFont, ImageDraw, ImageSequence
+from PIL import Image, ImageSequence
 
 
-FONT_SIZE = 15
-TABLES = [
-    " @",
-    " .:-=+*#%@",
-    " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
-]
-COLORS_TABLE = TABLES[1]
+# HnTR - Gray levels tables, I think we need them, or not, idk
+# " @",
+# " .:-=+*#%@",
+# " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
+COLORS_TABLE = " .:-=+*#%@"
 
 
 def get_resize_factor(size_x, size_y):
@@ -36,7 +33,13 @@ def get_color(r, g, b, error):
     return (ir, ig, ib), [r - ir, g - ig, b - ib].copy()
 
 
-def draw_char(pixel, error, color_error, draw, blending_mode, x, y, font):
+# HnTR - One time i'm gonna add new coloring scheme
+#     X 4 3
+# 1 2 3 2 1
+# (1/16)
+
+
+def draw_char(pixel, error, color_error, blending_mode):
     if not blending_mode:
         error = 0
         color_error = [0, 0, 0]
@@ -47,67 +50,62 @@ def draw_char(pixel, error, color_error, draw, blending_mode, x, y, font):
     brightness = r * 0.3 + g * 0.59 + b * 0.11
     char, error = get_char(brightness, error)
     color, color_error = get_color(r, g, b, color_error)
-    draw.text((x * FONT_SIZE, y * FONT_SIZE), char,
-              color,
-              font=font)
 
-    return error, color_error.copy()
+    return error, color_error.copy(), char, color
 
 
-def image_to_text(image_path, blending_mode):
+def image_to_ascii_art(image_path, blending_mode):
     img = Image.open(image_path)
 
     extension = image_path[image_path.rfind(".") + 1::]
-    print(extension)
 
-    if extension != "gif":
+    data = [[]]
+    if extension not in {"gif", "webm"}:
         print("Working with image...")
         resize_factor = get_resize_factor(img.size[0], img.size[1])
 
         img = img.reduce(int(resize_factor))
         pixels = img.load()
         x, y = img.size
+        data[0] = (x, y)
 
-        output = Image.new("RGB", (x * FONT_SIZE, y * FONT_SIZE), (0, 0, 0))
-        draw = ImageDraw.Draw(output)
-        font = ImageFont.truetype("font.ttf", FONT_SIZE + 1)
+        data.append([])
 
         for iy in range(y):
             error = 0
             color_error = [0, 0, 0]
             for ix in range(x):
                 pixel = pixels[ix, iy]
-                error, color_error = draw_char(pixel, error, color_error, draw, blending_mode, ix, iy, font)
+                error, color_error, char, color = draw_char(pixel, error, color_error, blending_mode)
+                data[1].append((char, color, [ix, iy]))
 
-    # Working with gifs
+    # HnTR - Working with gifs
     else:
-        frames = []
+        data = [[]]
         frame_id = 0
         for frame in [frame.copy() for frame in ImageSequence.Iterator(img)]:
-            print(f"Working with frame {frame_id}...")
-            frame_id += 1
-
-            resize_factor = get_resize_factor(frame.size[0], frame.size[1])
-
             if frame.mode == "P":
                 continue
+
+            print(f"Working with frame {frame_id}...")
+
+            resize_factor = get_resize_factor(frame.size[0], frame.size[1])
             frame = frame.reduce(int(resize_factor))
             pixels = frame.load()
             x, y = frame.size
+            data[0] = (x, y)
 
-            out = Image.new("RGB", (x * FONT_SIZE, y * FONT_SIZE), (0, 0, 0))
-            draw = ImageDraw.Draw(out)
-            font = ImageFont.truetype("font.ttf", FONT_SIZE + 1)
+            data.append([])
 
             for iy in range(y):
                 error = 0
                 color_error = [0, 0, 0]
                 for ix in range(x):
                     pixel = pixels[ix, iy]
-                    error, color_error = draw_char(pixel, error, color_error, draw, blending_mode, ix, iy, font)
+                    error, color_error, char, color = draw_char(pixel, error, color_error, blending_mode)
+                    data[-1].append((char, color, [ix, iy]))
 
-            frames.append(out)
-        output = frames.copy()
+            frame_id += 1
 
     img.close()
-    return output
+    return data
