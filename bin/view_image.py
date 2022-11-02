@@ -2,8 +2,13 @@ import pygame
 import sys
 
 
-def display_image(image_data):
-    font_size = 8
+def quit_viewer():
+    pygame.quit()
+    sys.exit()
+
+
+def display_image(image_data, image_name):
+    font_size = 16
 
     pygame.init()
     pygame.font.init()
@@ -12,30 +17,37 @@ def display_image(image_data):
     font_size -= 1
 
     size = image_data.pop(0)
-    screen = pygame.display.set_mode((size[0] * font_size, size[1] * font_size))
+    screen = pygame.display.set_mode((1920, 1080))
 
-    frame_id = 0
+    frames = []
+    for frame_data in image_data:
+        frame_surface = pygame.Surface((size[0] * font_size, size[1] * font_size))
+        for pixel in frame_data:
+            char = pixel[0]
+            color = pixel[1]
+            pos = pixel[2]
+            char_draw = font.render(char, True, color)
+            frame_surface.blit(char_draw, (pos[0] * font_size, pos[1] * font_size))
+        frames.append(frame_surface)
+
     clock = pygame.time.Clock()
+    frame_id = 0
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
+                if len(frames) == 1:
+                    pygame.image.save(frames[0], f"outputs/{image_name}.png")
+                quit_viewer()
+
+        if frame_id >= len(frames):
+            frame_id = 0
+        frame = frames[frame_id]
+        frame_id += 1
 
         screen.fill((0, 0, 0))
 
-        if frame_id >= len(image_data):
-            frame_id = 0
+        frame_surface = pygame.transform.smoothscale(frame, screen.get_size())
+        screen.blit(frame_surface, (0, 0))
 
-        frame = image_data[frame_id]
-        for pixel in frame:
-            char = pixel[0]
-
-            color = pixel[1]
-            pos = pixel[2]
-            char_draw = font.render(char, False, color)
-            screen.blit(char_draw, (pos[0] * font_size, pos[1] * font_size))
-
-        frame_id += 1
         clock.tick(24)
         pygame.display.flip()

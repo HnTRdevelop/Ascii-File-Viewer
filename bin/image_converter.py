@@ -2,17 +2,20 @@ from PIL import Image, ImageSequence
 
 
 # HnTR - Gray levels tables, I think we need them, or not, idk
-# " @",
-# " .:-=+*#%@",
+# " @"
+# " .:-=+*#%@"
 # " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
 COLORS_TABLE = " .:-=+*#%@"
+BLEND_MAP = [[0, 0, 0, 5, 3],
+             [2, 4, 5, 4, 2],
+             [0, 2, 3, 2, 0]]
 
 
 def get_resize_factor(size_x, size_y):
     size_factor = size_x if size_x > size_y else size_y
     resize_factor = 1
     if size_factor > 128:
-        resize_factor = (16 * (size_factor - 128)) / 2594 + 1
+        resize_factor = (8 * (size_factor - 128)) / 2779 + 1
     return resize_factor
 
 
@@ -23,44 +26,26 @@ def get_char(brightness, error):
     return char, brightness - (COLORS_TABLE.index(char) * coefficient)
 
 
-def get_color(r, g, b, error):
-    r += error[0]
-    g += error[1]
-    b += error[2]
+def get_color(r, g, b):
     ir = 255 if r >= 128 else 0
     ig = 255 if g >= 128 else 0
     ib = 255 if b >= 128 else 0
     return (ir, ig, ib), [r - ir, g - ig, b - ib].copy()
 
 
-# HnTR - One time i'm gonna add new coloring scheme
-#     X 4 3
-# 1 2 3 2 1
-# (1/16)
+def check_pos(x, y, ix, iy):
+    if ix < 0 or iy < 0 or ix >= x or iy >= y:
+        return False
+    return True
 
 
-def draw_char(pixel, error, color_error, blending_mode):
-    if not blending_mode:
-        error = 0
-        color_error = [0, 0, 0]
-
-    r = pixel[0]
-    g = pixel[1]
-    b = pixel[2]
-    brightness = r * 0.3 + g * 0.59 + b * 0.11
-    char, error = get_char(brightness, error)
-    color, color_error = get_color(r, g, b, color_error)
-
-    return error, color_error.copy(), char, color
-
-
-def image_to_ascii_art(image_path, blending_mode):
+def image_to_ascii_art(image_path, blending_mode, coloring_mode):
     img = Image.open(image_path)
 
     extension = image_path[image_path.rfind(".") + 1::]
 
     data = [[]]
-    if extension not in {"gif", "webm"}:
+    if extension not in {"gif"}:
         print("Working with image...")
         resize_factor = get_resize_factor(img.size[0], img.size[1])
 
@@ -73,10 +58,29 @@ def image_to_ascii_art(image_path, blending_mode):
 
         for iy in range(y):
             error = 0
-            color_error = [0, 0, 0]
             for ix in range(x):
                 pixel = pixels[ix, iy]
-                error, color_error, char, color = draw_char(pixel, error, color_error, blending_mode)
+                r = pixel[0]
+                g = pixel[1]
+                b = pixel[2]
+                brightness = r * 0.3 + g * 0.59 + b * 0.11
+                char, error = get_char(brightness, error)
+                if coloring_mode:
+                    color, color_error = get_color(r, g, b)
+                    if blending_mode:
+                        for dy in range(3):
+                            for dx in range(-2, 3):
+                                if dy == 0 and dx <= 0:
+                                    continue
+                                if check_pos(x, y, ix + dx, iy + dy):
+                                    p = pixels[ix + dx, iy + dy]
+                                    pixels[ix + dx, iy + dy] = (
+                                        p[0] + int(BLEND_MAP[dy][dx + 2] * color_error[0] / 32),
+                                        p[1] + int(BLEND_MAP[dy][dx + 2] * color_error[1] / 32),
+                                        p[2] + int(BLEND_MAP[dy][dx + 2] * color_error[2] / 32))
+                else:
+                    color = (255, 255, 255)
+
                 data[1].append((char, color, [ix, iy]))
 
     # HnTR - Working with gifs
@@ -99,10 +103,29 @@ def image_to_ascii_art(image_path, blending_mode):
 
             for iy in range(y):
                 error = 0
-                color_error = [0, 0, 0]
                 for ix in range(x):
                     pixel = pixels[ix, iy]
-                    error, color_error, char, color = draw_char(pixel, error, color_error, blending_mode)
+                    r = pixel[0]
+                    g = pixel[1]
+                    b = pixel[2]
+                    brightness = r * 0.3 + g * 0.59 + b * 0.11
+                    char, error = get_char(brightness, error)
+                    if coloring_mode:
+                        color, color_error = get_color(r, g, b)
+                        if blending_mode:
+                            for dy in range(3):
+                                for dx in range(-2, 3):
+                                    if dy == 0 and dx <= 0:
+                                        continue
+                                    if check_pos(x, y, ix + dx, iy + dy):
+                                        p = pixels[ix + dx, iy + dy]
+                                        pixels[ix + dx, iy + dy] = (
+                                            p[0] + int(BLEND_MAP[dy][dx + 2] * color_error[0] / 32),
+                                            p[1] + int(BLEND_MAP[dy][dx + 2] * color_error[1] / 32),
+                                            p[2] + int(BLEND_MAP[dy][dx + 2] * color_error[2] / 32))
+                    else:
+                        color = (255, 255, 255)
+
                     data[-1].append((char, color, [ix, iy]))
 
             frame_id += 1

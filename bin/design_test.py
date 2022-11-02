@@ -1,5 +1,4 @@
 import sys
-import datetime
 
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication
@@ -19,11 +18,10 @@ class MyWidget(Ui_MainWindow, QMainWindow):
     def transform(self):
         file_path = QFileDialog.getOpenFileName(self, '')[0]
         image_name = file_path[file_path.rfind("/") + 1:file_path.rfind("."):]
-        image_type = file_path[file_path.rfind(".") + 1::]
 
-        image_data = image_converter.image_to_ascii_art(file_path, True)
+        image_data = image_converter.image_to_ascii_art(file_path, True, True)
         print("Done!\n")
-        view_image.display_image(image_data)
+        view_image.display_image(image_data, image_name)
 
 
 if __name__ == '__main__':
