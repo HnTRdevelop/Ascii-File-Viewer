@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87ed701e-3966-44bb-b877-2070887b8a77" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bin/outputs/Снимок экрана от 2022-11-03 15-48-45.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/image_converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/image_converter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/outputs/annna-markarova-mlp-OC-my-little-pony-mlp-песочница-7636728.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view_image.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

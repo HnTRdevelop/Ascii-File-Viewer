@@ -17,7 +17,6 @@ def display_image(image_data, image_name):
     font_size -= 1
 
     size = image_data.pop(0)
-    screen = pygame.display.set_mode((1920, 1080))
 
     frames = []
     for frame_data in image_data:
@@ -30,13 +29,20 @@ def display_image(image_data, image_name):
             frame_surface.blit(char_draw, (pos[0] * font_size, pos[1] * font_size))
         frames.append(frame_surface)
 
+    frame_size = frames[0].get_size()
+    screen_size = (1920, 1080)
+
+    resize_factor = frame_size[0] / screen_size[0] \
+        if frame_size[1] / screen_size[1] < frame_size[0] / screen_size[0] \
+        else frame_size[1] / screen_size[1]
+
+    screen = pygame.display.set_mode((frame_size[0] / resize_factor, frame_size[1] / resize_factor))
+
     clock = pygame.time.Clock()
     frame_id = 0
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                if len(frames) == 1:
-                    pygame.image.save(frames[0], f"outputs/{image_name}.png")
                 quit_viewer()
 
         if frame_id >= len(frames):
