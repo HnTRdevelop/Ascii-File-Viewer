@@ -16,7 +16,9 @@ def display_image(image_data, image_name):
     font = pygame.font.Font('font.ttf', font_size)
     font_size -= 1
 
-    size = image_data.pop(0)
+    img_data = image_data.pop(0)
+    size = img_data[:2]
+    frame_rate = img_data[2]
 
     frames = []
     for frame_data in image_data:
@@ -37,6 +39,7 @@ def display_image(image_data, image_name):
         else frame_size[1] / screen_size[1]
 
     screen = pygame.display.set_mode((frame_size[0] / resize_factor, frame_size[1] / resize_factor))
+    pygame.display.set_caption(image_name)
 
     clock = pygame.time.Clock()
     frame_id = 0
@@ -55,5 +58,5 @@ def display_image(image_data, image_name):
         frame_surface = pygame.transform.smoothscale(frame, screen.get_size())
         screen.blit(frame_surface, (0, 0))
 
-        clock.tick(24)
+        clock.tick(int(frame_rate))
         pygame.display.flip()

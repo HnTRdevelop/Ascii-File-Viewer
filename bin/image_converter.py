@@ -30,7 +30,7 @@ def get_color(r, g, b):
     ir = 255 if r >= 128 else 0
     ig = 255 if g >= 128 else 0
     ib = 255 if b >= 128 else 0
-    return (ir, ig, ib), [r - ir, g - ig, b - ib].copy()
+    return (ir, ig, ib), [r - ir, g - ig, b - ib]
 
 
 def check_pos(x, y, ix, iy):
@@ -52,7 +52,7 @@ def image_to_ascii_art(image_path, blending_mode, coloring_mode):
         img = img.reduce(int(resize_factor))
         pixels = img.load()
         x, y = img.size
-        data[0] = (x, y)
+        data[0] = (x, y, 0)
 
         data.append([])
 
@@ -97,7 +97,7 @@ def image_to_ascii_art(image_path, blending_mode, coloring_mode):
             frame = frame.reduce(int(resize_factor))
             pixels = frame.load()
             x, y = frame.size
-            data[0] = (x, y)
+            data[0] = (x, y, 1000 / img.info["duration"])
 
             data.append([])
 
