@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87ed701e-3966-44bb-b877-2070887b8a77" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/bin/outputs/612793.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/outputs/Tempest-Shadow-true-anon-mlp-gif-my-little-pony-4121337.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/view_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view_image.py" afterDir="false" />
     </list>

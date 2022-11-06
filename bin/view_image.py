@@ -33,7 +33,7 @@ def display_image(image_data, image_name):
 
     frame_size = frames[0].get_size()
     screen_info = pygame.display.Info()
-    screen_size = (screen_info.current_w - 128, screen_info.current_h - 128)
+    screen_size = (screen_info.current_w / 1.5, screen_info.current_h / 1.5)
 
     resize_factor = frame_size[0] / screen_size[0] \
         if frame_size[1] / screen_size[1] < frame_size[0] / screen_size[0] \
@@ -47,6 +47,7 @@ def display_image(image_data, image_name):
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                pygame.image.save(frames[0], f"outputs/{image_name}.png")
                 quit_viewer()
 
         if frame_id >= len(frames):
