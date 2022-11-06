@@ -32,7 +32,8 @@ def display_image(image_data, image_name):
         frames.append(frame_surface)
 
     frame_size = frames[0].get_size()
-    screen_size = (1920, 1080)
+    screen_info = pygame.display.Info()
+    screen_size = (screen_info.current_w - 128, screen_info.current_h - 128)
 
     resize_factor = frame_size[0] / screen_size[0] \
         if frame_size[1] / screen_size[1] < frame_size[0] / screen_size[0] \
