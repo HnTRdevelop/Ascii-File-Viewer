@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87ed701e-3966-44bb-b877-2070887b8a77" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bin/image_source.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/images/back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/images/image_source.qrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/outputs/Flutterbat-Batpony-my-little-pony-фэндомы-7665913.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/outputs/NecroIzu-furry-artist-artist-furry-f-7332995.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/outputs/Princess-Celestia-royal-my-little-pony-фэндомы-7412539.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/outputs/Queen-Chrysalis-minor-my-little-pony-фэндомы-7661002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/outputs/Twilight-Sparkle-mane-6-my-little-pony-фэндомы-7235039.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/outputs/photo_2022-10-31_18-56-22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/outputs/snd.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/MainWindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/bin/MainWindow.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/image_converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/image_converter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main_window.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

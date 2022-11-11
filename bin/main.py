@@ -11,7 +11,7 @@ from PIL import Image
 
 extensions = Image.registered_extensions()
 ALLOWED_IMAGE_TYPES = {ex for ex, f in extensions.items() if f in Image.OPEN}
-ALLOWED_SOUND_TYPES = {}
+ALLOWED_SOUND_TYPES = {".wav"}
 del extensions
 
 
