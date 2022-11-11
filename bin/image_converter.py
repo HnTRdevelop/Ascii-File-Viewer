@@ -46,7 +46,6 @@ def image_to_ascii_art(image_path, blending_mode, coloring_mode):
 
     data = [[]]
     if extension not in {"gif"}:
-        print("Working with image...")
         resize_factor = get_resize_factor(img.size[0], img.size[1])
 
         img = img.reduce(int(resize_factor))
@@ -90,8 +89,6 @@ def image_to_ascii_art(image_path, blending_mode, coloring_mode):
         for frame in [frame.copy() for frame in ImageSequence.Iterator(img)]:
             if frame.mode == "P":
                 continue
-
-            print(f"Working with frame {frame_id}...")
 
             resize_factor = get_resize_factor(frame.size[0], frame.size[1])
             frame = frame.reduce(int(resize_factor))

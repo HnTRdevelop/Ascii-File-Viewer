@@ -1,10 +1,8 @@
 import pygame
-import sys
 
 
 def quit_viewer():
     pygame.quit()
-    sys.exit()
 
 
 def display_image(image_data, image_name):
@@ -44,21 +42,25 @@ def display_image(image_data, image_name):
 
     clock = pygame.time.Clock()
     frame_id = 0
-    while True:
+
+    running = True
+    while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.image.save(frames[0], f"outputs/{image_name}.png")
                 quit_viewer()
+                running = False
 
-        if frame_id >= len(frames):
-            frame_id = 0
-        frame = frames[frame_id]
-        frame_id += 1
+        if running:
+            if frame_id >= len(frames):
+                frame_id = 0
+            frame = frames[frame_id]
+            frame_id += 1
 
-        screen.fill((0, 0, 0))
+            screen.fill((0, 0, 0))
 
-        frame_surface = pygame.transform.smoothscale(frame, screen.get_size())
-        screen.blit(frame_surface, (0, 0))
+            frame_surface = pygame.transform.smoothscale(frame, screen.get_size())
+            screen.blit(frame_surface, (0, 0))
 
-        clock.tick(int(frame_rate))
-        pygame.display.flip()
+            clock.tick(int(frame_rate))
+            pygame.display.flip()
