@@ -5,31 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87ed701e-3966-44bb-b877-2070887b8a77" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Colors.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/MainWindow.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/images/dir.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/images/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/images/snd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/main_window.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/AppleJack.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/Nightmare-Moon-minor-my-little-pony-фэндомы-7531640.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/Pinkie-Pie-mane-6-my-little-pony-фэндомы-7665909.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/Princess-Luna-royal-my-little-pony-фэндомы-7638490.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/Queen-Chrysalis-minor-my-little-pony-фэндомы-7637959.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/Queen-Chrysalis-minor-my-little-pony-фэндомы-7648579.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/applejack.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/fallout-equestria-my-little-pony-фэндомы-alicorn-7674870.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/my-little-pony-mlp-песочница-фэндомы-Trixie-4121025.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/my-little-pony-фэндомы-Princess-Luna-royal-7188664.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/rainbowdash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/twilight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/image_source.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/images/back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/images/image_source.qrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/converter_window.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/converter_window.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/design_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view_image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Супер дизайн для программы.pdn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/MainWindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/bin/MainWindow.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/image_converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/image_converter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main_window.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +57,7 @@
       <recent name="C:\Users\siviz\Documents\GitHub\project_numba_one" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bin/images" />
       <recent name="$PROJECT_DIR$/bin" />
       <recent name="C:\Users\siviz\Documents\GitHub\project_numba_one\bin" />
     </key>
