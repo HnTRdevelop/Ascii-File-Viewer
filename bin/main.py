@@ -5,7 +5,7 @@ from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget
 from main_window import *
 import image_converter
-import view_image
+import image_viewer
 from PIL import Image
 
 
@@ -16,7 +16,7 @@ del extensions
 
 
 class FileWidget(QWidget):
-    def __init__(self, parent, file_name, file_type, widget_id):
+    def __init__(self, parent, file_name, file_type, widget_id, current_path):
         super().__init__(parent)
 
         self.file_name = file_name
@@ -34,7 +34,7 @@ class FileWidget(QWidget):
         if self.file_type == "dir":
             img = QPixmap("images/dir.png")
         elif self.file_type == "image":
-            img = QPixmap("images/img.png")
+            img = QPixmap(f"{current_path}/{self.file_name}")
         else:
             img = QPixmap("images/snd.png")
 
@@ -55,7 +55,7 @@ class FileWidget(QWidget):
 def convert_image(file_path):
     image_name = file_path[file_path.rfind("/") + 1:file_path.rfind("."):]
     image_data = image_converter.image_to_ascii_art(file_path, True, True)
-    view_image.display_image(image_data, image_name)
+    image_viewer.display_image(image_data, image_name)
 
 
 class MainWindow(Ui_main_window, QMainWindow):
@@ -129,7 +129,7 @@ class MainWindow(Ui_main_window, QMainWindow):
         elif extension in ALLOWED_IMAGE_TYPES:
             file_type = "image"
 
-        file_widget = FileWidget(self.scroll_area_widget, name, file_type, len(self.files_list))
+        file_widget = FileWidget(self.scroll_area_widget, name, file_type, len(self.files_list), self.current_path)
         self.files_list.append(file_widget)
 
 

@@ -30,6 +30,7 @@ def display_image(image_data, image_name):
         frames.append(frame_surface)
 
     frame_size = frames[0].get_size()
+    pygame.display.set_mode((0, 0))
     screen_info = pygame.display.Info()
     screen_size = (screen_info.current_w / 1.5, screen_info.current_h / 1.5)
 
