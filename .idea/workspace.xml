@@ -1,41 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="87ed701e-3966-44bb-b877-2070887b8a77" name="Changes" comment="">
-<<<<<<< Updated upstream
-      <change afterPath="$PROJECT_DIR$/bin/outputs/Flutterbat-Batpony-my-little-pony-фэндомы-7665913.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/NecroIzu-furry-artist-artist-furry-f-7332995.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/Princess-Celestia-royal-my-little-pony-фэндомы-7412539.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/Queen-Chrysalis-minor-my-little-pony-фэндомы-7661002.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/Twilight-Sparkle-mane-6-my-little-pony-фэндомы-7235039.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/photo_2022-10-31_18-56-22.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/snd.png" afterDir="false" />
+    <list default="true" id="389ac8b8-e254-4975-b8e1-da04a78b3a2c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/bin/sound_visualiser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project_numba_one.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project_numba_one.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/image_viewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/image_viewer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main.py" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/bin/outputs/my-little-pony-фэндомы-Princess-Luna-royal-7218551.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/photo_2022-11-04_18-16-29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/outputs/wp8413079-dcs-wallpapers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/sound.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/image_viewer.py" afterDir="false" />
->>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/bin/sound.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,34 +21,21 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2GV5tFoRmHRnDxYPVPmjcMp8VRK" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2HX0A1OJBNI3yqZE8JQttISriyD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/hntr/Документы/GitHub/project_numba_one/bin/images&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.externalTools&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/hntr/Документы/GitHub/project_numba_one/bin"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/bin/images" />
       <recent name="$PROJECT_DIR$/bin" />
-      <recent name="$PROJECT_DIR$/bin/pygame_image_displaying" />
-      <recent name="C:\Users\siviz\Documents\GitHub\project_numba_one" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/bin/images" />
-      <recent name="$PROJECT_DIR$/bin" />
-      <recent name="C:\Users\siviz\Documents\GitHub\project_numba_one\bin" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -95,7 +60,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sound" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="sound_visualiser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="project_numba_one" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -107,28 +72,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bin/sound.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="project_numba_one" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bin" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bin/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bin/sound_visualiser.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -140,19 +84,18 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.sound" />
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.sound_visualiser" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="87ed701e-3966-44bb-b877-2070887b8a77" name="Changes" comment="" />
-      <created>1666461123238</created>
+      <changelist id="389ac8b8-e254-4975-b8e1-da04a78b3a2c" name="Changes" comment="" />
+      <created>1668415974506</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1666461123238</updated>
+      <updated>1668415974506</updated>
     </task>
     <servers />
   </component>
@@ -166,19 +109,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <default-breakpoints>
-        <breakpoint type="python-exception">
-          <properties notifyOnTerminate="true" exception="BaseException">
-            <option name="notifyOnTerminate" value="true" />
-          </properties>
-        </breakpoint>
-      </default-breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

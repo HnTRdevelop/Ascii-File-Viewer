@@ -1,18 +1,18 @@
 import pygame
 
 
+FONT_SIZE = 16
+
+
 def quit_viewer():
     pygame.quit()
 
 
 def display_image(image_data, image_name):
-    font_size = 16
-
     pygame.init()
     pygame.font.init()
 
-    font = pygame.font.Font('font.ttf', font_size)
-    font_size -= 1
+    font = pygame.font.Font('font.ttf', FONT_SIZE)
 
     img_data = image_data.pop(0)
     size = img_data[:2]
@@ -20,13 +20,13 @@ def display_image(image_data, image_name):
 
     frames = []
     for frame_data in image_data:
-        frame_surface = pygame.Surface((size[0] * font_size, size[1] * font_size))
+        frame_surface = pygame.Surface((size[0] * FONT_SIZE, size[1] * FONT_SIZE))
         for pixel in frame_data:
             char = pixel[0]
             color = pixel[1]
             pos = pixel[2]
             char_draw = font.render(char, True, color)
-            frame_surface.blit(char_draw, (pos[0] * font_size, pos[1] * font_size))
+            frame_surface.blit(char_draw, (pos[0] * FONT_SIZE, pos[1] * FONT_SIZE))
         frames.append(frame_surface)
 
     frame_size = frames[0].get_size()

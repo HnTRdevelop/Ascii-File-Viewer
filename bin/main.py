@@ -6,12 +6,13 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget
 from main_window import *
 import image_converter
 import image_viewer
+import sound_visualiser
 from PIL import Image
 
 
 extensions = Image.registered_extensions()
 ALLOWED_IMAGE_TYPES = {ex for ex, f in extensions.items() if f in Image.OPEN}
-ALLOWED_SOUND_TYPES = {".wav"}
+ALLOWED_SOUND_TYPES = {".wav", ".mp3", ".ogg"}
 del extensions
 
 
@@ -52,12 +53,6 @@ class FileWidget(QWidget):
         window.open_file(self.file_name)
 
 
-def convert_image(file_path):
-    image_name = file_path[file_path.rfind("/") + 1:file_path.rfind("."):]
-    image_data = image_converter.image_to_ascii_art(file_path, True, True)
-    image_viewer.display_image(image_data, image_name)
-
-
 class MainWindow(Ui_main_window, QMainWindow):
     def __init__(self):
         super().__init__()
@@ -78,10 +73,10 @@ class MainWindow(Ui_main_window, QMainWindow):
         else:
             file_extension = file[file.rfind(".")::]
             if file_extension in ALLOWED_IMAGE_TYPES:
-                convert_image(f"{self.current_path}/{file}")
+                image_data = image_converter.image_to_ascii_art(f"{self.current_path}/{file}", True, True)
+                image_viewer.display_image(image_data, file)
             else:
-                # Заглушка для звуковых файлов
-                pass
+                sound_visualiser.visualise_sound(f"{self.current_path}/{file}", file)
 
     def move_back(self):
         self.change_dir("..")
