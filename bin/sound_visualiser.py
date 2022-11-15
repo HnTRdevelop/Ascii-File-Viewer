@@ -1,6 +1,5 @@
 from pydub import AudioSegment
 import pygame
-from screeninfo import get_monitors
 
 
 FONT_SIZE = 32
@@ -41,8 +40,8 @@ def visualise_sound(file_path, file_name):
     file_name = file_name[:file_name.rfind("."):]
 
     # Читаем информацию об экране
-    screen_info = get_monitors()[0]
-    screen_size = (screen_info.width / 2, screen_info.height / 2)
+    # screen_info = get_monitors()[0]
+    screen_size = (1920 / 2, 1080 / 2)
 
     # Создаём окно pygame
     screen = pygame.display.set_mode(screen_size)

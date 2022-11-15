@@ -45,11 +45,11 @@ class FileWidget(QWidget):
 
         # Выбираем картинку для виджета
         if self.file_type == "dir":
-            img = QPixmap("images/dir.png")
+            img = QPixmap("images\\dir.png")
         elif self.file_type == "image":
-            img = QPixmap(f"{current_path}/{self.file_name}")
+            img = QPixmap(f"{current_path}\\{self.file_name}")
         else:
-            img = QPixmap("images/snd.png")
+            img = QPixmap("images\\snd.png")
         file_widget_img.setPixmap(img)
         file_widget_img.setScaledContents(True)
         file_widget_img.setObjectName(f"file_widget_img{widget_id}")
@@ -88,16 +88,16 @@ class MainWindow(Ui_main_window, QMainWindow):
     # Функция для открытия файлов
     def open_file(self, file):
         # Если файл является директорией, то переходим в неё
-        if os.path.isdir(f"{self.current_path}/{file}") or file == "..":
+        if os.path.isdir(f"{self.current_path}\\{file}") or file == "..":
             self.change_dir(file[::])
         # Иначе октрываем файл соотвествующей функцией
         else:
             file_extension = file[file.rfind(".")::]
             if file_extension in ALLOWED_IMAGE_TYPES:
-                image_data = image_converter.image_to_ascii_art(f"{self.current_path}/{file}", True, True)
+                image_data = image_converter.image_to_ascii_art(f"{self.current_path}\\{file}", True, True)
                 image_viewer.display_image(image_data, file)
             else:
-                sound_visualiser.visualise_sound(f"{self.current_path}/{file}", file)
+                sound_visualiser.visualise_sound(f"{self.current_path}\\{file}", file)
 
     # Функция возврата выше по пути
     def move_back(self):
@@ -106,9 +106,9 @@ class MainWindow(Ui_main_window, QMainWindow):
     # Функция для смены дериктории
     def change_dir(self, new_dir):
         if new_dir == "..":
-            self.current_path = self.current_path[:self.current_path.rfind("/"):]
+            self.current_path = self.current_path[:self.current_path.rfind("\\"):]
         else:
-            self.current_path += f"/{new_dir}"
+            self.current_path += f"\\{new_dir}"
         self.update_files_list()
         self.current_path_line.setText(self.current_path)
 
@@ -129,7 +129,7 @@ class MainWindow(Ui_main_window, QMainWindow):
 
         # Добавляем все файлы, которые может обработать программа
         for file in files:
-            isdir = os.path.isdir(f"{self.current_path}/{file}")
+            isdir = os.path.isdir(f"{self.current_path}\\{file}")
             file_extension = ""
             if not isdir:
                 file_extension = file[file.rfind(".")::]

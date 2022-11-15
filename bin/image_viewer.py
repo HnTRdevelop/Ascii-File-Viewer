@@ -1,6 +1,4 @@
 import pygame
-from screeninfo import get_monitors
-
 
 FONT_SIZE = 16
 
@@ -41,8 +39,8 @@ def display_image(image_data, image_name):
 
     # Высчитываем размеры окна в зависимости от размеров картинки и размеров экрана
     frame_size = frames[0].get_size()
-    screen_info = get_monitors()[0]
-    screen_size = (screen_info.width / 1.5, screen_info.height / 1.5)
+    # screen_info = get_monitors(Enumerator.Windows)
+    screen_size = (1920 / 1.5, 1080 / 1.5)
 
     resize_factor = frame_size[0] / screen_size[0] \
         if frame_size[1] / screen_size[1] < frame_size[0] / screen_size[0] \
