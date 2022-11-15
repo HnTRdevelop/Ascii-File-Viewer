@@ -54,7 +54,7 @@ class Ui_main_window(object):
 
     def retranslateUi(self, main_window):
         _translate = QtCore.QCoreApplication.translate
-        main_window.setWindowTitle(_translate("main_window", "MainWindow"))
+        main_window.setWindowTitle(_translate("main_window", "hASCII explorer"))
         self.tool_bar.setWindowTitle(_translate("main_window", "toolBar"))
         self.action_move_back.setText(_translate("main_window", "Назад"))
         self.action_move_back.setToolTip(_translate("main_window", "<html><head/><body><p>Венуться назад</p></body></html>"))

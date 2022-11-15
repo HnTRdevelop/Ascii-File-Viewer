@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="389ac8b8-e254-4975-b8e1-da04a78b3a2c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bin/sound_visualiser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project_numba_one.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project_numba_one.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/visualiser demonstration.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/MainWindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/bin/MainWindow.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/image_converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/image_converter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/image_viewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/image_viewer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sound.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/sound_visualiser.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sound_visualiser.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,15 +27,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/hntr/Документы/GitHub/project_numba_one/bin"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/hntr/Документы/GitHub/project_numba_one&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/bin" />
     </key>
   </component>
